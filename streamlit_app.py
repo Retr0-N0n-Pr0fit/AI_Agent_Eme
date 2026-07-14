@@ -15,9 +15,7 @@ if not api_key:
 
 os.environ["GOOGLE_API_KEY"] = api_key
 
-DOCS_FOLDER = "./archivos_politicas"
-if not os.path.exists(DOCS_FOLDER):
-    os.makedirs(DOCS_FOLDER)
+DOCS_FOLDER = "."
 
 with st.sidebar:
     st.header("🌾 Gestión de Granja")
@@ -32,36 +30,45 @@ with st.sidebar:
     st.write("---")
     st.subheader("📚 Documentos Vigentes")
     
-    documentos_activos = ["manual_politicas_y_privacidad_eme_ranchito.pdf", "manual_faqs_eme_ranchito.pdf"]
+    documentos_activos = []
+    if os.path.exists(DOCS_FOLDER):
+        documentos_activos = [f for f in os.listdir(DOCS_FOLDER) if f.endswith(('.pdf', '.csv'))]
     
     if archivos_nuevos:
         for f in archivos_nuevos:
             documentos_activos.append(f"🆕 {f.name} (En memoria)")
             
-    for doc in documentos_activos:
-        st.markdown(f"- `{doc}`")
+    if documentos_activos:
+        for doc in documentos_activos:
+            st.markdown(f"- `{doc}`")
+    else:
+        st.info("No se encontraron archivos PDF o CSV en la raíz.")
 
 
 def cargar_base_conocimiento(archivos_extra):
     textos_contexto = []
     
-    archivos_pdf_base = ["manual_politicas_y_privacidad_eme_ranchito.pdf", "manual_faqs_eme_ranchito.pdf"]
-    for archivo_pdf in archivos_pdf_base:
-        ruta_pdf = os.path.join(DOCS_FOLDER, archivo_pdf)
-        if os.path.exists(ruta_pdf):
-            loader = PyPDFLoader(ruta_pdf)
-            paginas = loader.load()
-            for p in paginas:
-                textos_contexto.append(f"[Fuente: {archivo_pdf}, Página: {p.metadata.get('page', 0) + 1}] {p.page_content}")
-                
     if os.path.exists(DOCS_FOLDER):
         for archivo in os.listdir(DOCS_FOLDER):
-            if archivo.endswith(".csv"):
-                ruta_csv = os.path.join(DOCS_FOLDER, archivo)
-                df = pd.read_csv(ruta_csv)
-                for idx, row in df.iterrows():
-                    fila = ", ".join([f"{col}: {val}" for col, val in row.items()])
-                    textos_contexto.append(f"[Fuente: {archivo}, Fila: {idx+1}] {fila}")
+            ruta_completa = os.path.join(DOCS_FOLDER, archivo)
+            
+            if archivo.endswith(".pdf"):
+                try:
+                    loader = PyPDFLoader(ruta_completa)
+                    paginas = loader.load()
+                    for p in paginas:
+                        textos_contexto.append(f"[Fuente: {archivo}, Página: {p.metadata.get('page', 0) + 1}] {p.page_content}")
+                except Exception as e:
+                    pass
+            
+            elif archivo.endswith(".csv"):
+                try:
+                    df = pd.read_csv(ruta_completa)
+                    for idx, row in df.iterrows():
+                        fila = ", ".join([f"{col}: {val}" for col, val in row.items()])
+                        textos_contexto.append(f"[Fuente: {archivo}, Fila: {idx+1}] {fila}")
+                except Exception as e:
+                    pass
                     
     if archivos_extra:
         for archivo_subido in archivos_extra:
@@ -83,6 +90,7 @@ def cargar_base_conocimiento(archivos_extra):
             os.remove(archivo_subido.name)
                 
     return "\n\n".join(textos_contexto)
+
 
 contexto_unificado = cargar_base_conocimiento(archivos_nuevos)
 
