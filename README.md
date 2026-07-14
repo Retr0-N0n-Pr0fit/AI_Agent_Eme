@@ -122,3 +122,23 @@ A continuación se listan las preguntas clave con las respuestas reales que gene
 > * **Secretos industriales:** La información más valiosa, como la ubicación exacta de las vetas de minerales raros, los mapas de exploración minera y las fórmulas biológicas para optimizar cultivos, se clasifica como "Secretos Industriales de Nivel Crítico" o "Alta Seguridad". Estos datos no se almacenan en formatos digitales vulnerables y se prohíbe terminantemente su discusión pública, manteniéndose en la memoria operativa de los socios fundadores y en bitácoras físicas bajo estrictas medidas de seguridad.
 > 
 > Así que, vecino, puedes estar tranquilo de que tu información y nuestros secretos de producción están bien resguardados aquí en Eme Ranchito.
+---
+## 🖥️ Demostración
+
+¡Puedes probar el agente en vivo haciendo clic en el siguiente enlace!
+
+👉 **[Probar Eme-Bot en Streamlit Community Cloud](https://granja-eme-ranchito.streamlit.app/)**
+
+---
+
+### 📸 Vista Previa de la Interfaz
+
+A continuación puedes ver cómo luce el panel de control y el flujo de conversación de Eme-Bot:
+
+#### 1. Panel Principal y Documentación
+Aquí se gestionan los manuales y políticas de la granja desde la barra lateral.
+<img width="1854" height="881" alt="image" src="https://github.com/user-attachments/assets/617cd29c-139b-4537-b77d-52deb54f149b" />
+
+#### 2. Flujo de Chat con el Agente
+Demostración de una consulta en tiempo real utilizando la paleta rústica y minimalista.
+<img width="1851" height="882" alt="image" src="https://github.com/user-attachments/assets/01e54f2e-7882-45d8-b516-f1a684093edb" />
