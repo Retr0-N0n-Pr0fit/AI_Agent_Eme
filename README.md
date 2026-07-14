@@ -25,11 +25,11 @@ Eme-Bot es un asistente conversacional inteligente desarrollado para **Granja Em
 ## 📂 Estructura del Repositorio
 
 ```text
-├── FAQS.pdf                                      # Documento de Preguntas Frecuentes
-├── Manualpl.pdf                                  # Manual de Políticas y Privacidad de la Granja
-├── requirements.txt                              # Dependencias de librerías de Python
-├── streamlit_app.py                              # Código principal de la aplicación
-└── README.md                                     # Documentación del proyecto (este archivo)
+├── manual_faqs_eme_ranchito.pdf
+├── manual_politicas_y_privacidad_eme_ranchito.pdf
+├── requirements.txt
+├── streamlit_app.py
+└── README.md
 ```
 ## ⚙️ Instalación y Configuración Local
 Si deseas ejecutar este proyecto en tu computadora de forma local, sigue estos pasos:
