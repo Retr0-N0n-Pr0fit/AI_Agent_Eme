@@ -123,14 +123,13 @@ for msg in st.session_state.messages:
         st.write(msg["content"])
 
 if usuario_input := st.chat_input("Pregúntale a Eme-Bot..."):
-    st.session_state.messages.append({"role": "user", "content": usuario_input})
-    
-   with st.chat_message("user"):
-        st.write(f"👤 {usuario_input}")
+    st.session_state.messages.append({"role": "user", "content": usuario_input})
+    with st.chat_message("user", avatar="👤"):
+        st.write(usuario_input)
 
-   with st.chat_message("assistant"):
-        mensajes_finales = prompt_template.format_messages(context=contexto_unificado, input=usuario_input)
-        respuesta = llm.invoke(mensajes_finales)
-        st.write(f"🧑‍🌾 {respuesta.content}")
-        
-    st.session_state.messages.append({"role": "assistant", "content": respuesta.content})
+    with st.chat_message("assistant", avatar="🧑‍🌾"):
+        mensajes_finales = prompt_template.format_messages(context=contexto_unificado, input=usuario_input)
+        respuesta = llm.invoke(mensajes_finales)
+        st.write(respuesta.content)
+        
+    st.session_state.messages.append({"role": "assistant", "content": respuesta.content})
