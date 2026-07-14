@@ -36,7 +36,7 @@ Si deseas ejecutar este proyecto en tu computadora de forma local, sigue estos p
 
 ## 1. Clona el repositorio:
 ```text
-git clone [https://github.com/Retr0-N0n-Pr0fit/AI_Agent_Eme.git](https://github.com/Retr0-N0n-Pr0fit/AI_Agent_Eme.git)
+git clone https://github.com/Retr0-N0n-Pr0fit/AI_Agent_Eme.git
 cd AI_Agent_Eme
 ```
 ## 2. Instala las librerías necesarias:
