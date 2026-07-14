@@ -36,13 +36,11 @@ Si deseas ejecutar este proyecto en tu computadora de forma local, sigue estos p
 
 ## 1. Clona el repositorio:
 ```text
-Bash
-git clone [https://github.com/tu-usuario/tu-repositorio.git](https://github.com/tu-usuario/tu-repositorio.git)
-cd tu-repositorio
+git clone [https://github.com/Retr0-N0n-Pr0fit/AI_Agent_Eme.git](https://github.com/Retr0-N0n-Pr0fit/AI_Agent_Eme.git)
+cd AI_Agent_Eme
 ```
 ## 2. Instala las librerías necesarias:
 ```text
-Bash
 pip install -r requirements.txt
 ```
 ## 3. Configura tu API Key de Gemini:
@@ -53,7 +51,6 @@ GEMINI_API_KEY = "tu_api_key_real_de_gemini_aqui"
 ```
 ## 4. Inicia la aplicación:
 ```text
-Bash
 streamlit run streamlit_app.py
 ```
 ## 🧑‍💻 ¿Cómo Funciona por Detrás?
